@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace PrimeTourOperator.Data
+namespace PrimeTourOperator.Infrastructure.Data
 {
 	public class ApplicationDbContext : IdentityDbContext
 	{

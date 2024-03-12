@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PrimeTourOperator.Data;
+using PrimeTourOperator.Infrastructure.Data;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-	public static class ServiceConnectionExtension
+    public static class ServiceConnectionExtension
 	{
 		public static IServiceCollection AddApplicationServices(this IServiceCollection services)
 		{
