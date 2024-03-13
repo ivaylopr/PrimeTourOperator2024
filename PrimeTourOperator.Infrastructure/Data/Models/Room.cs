@@ -1,11 +1,26 @@
-﻿namespace PrimeTourOperator.Infrastructure.Data.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using static PrimeTourOperator.Infrastructure.Constants.DataConstants;
+
+namespace PrimeTourOperator.Infrastructure.Data.Models
 {
+    [Comment("Room class")]
     public class Room
     {
+        [Key]
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        [Required]
+        [MaxLength(RoomTitleMaxLength)]
+        [Comment("Room title")]
+        public string Title { get; set; } = string.Empty;
+        [MaxLength(RoomDescriptionMaxLenght)]
+        [Comment("Room description")]
+        public string? Description { get; set; }
+        [Required]
+        [Comment("Room price")]
         public  decimal Price { get; set; }
-        public string AdditionalExtras { get; set; }
+        [MaxLength(RoomAddExtrasMaxLength)]
+        [Comment("Additional room exrtas")]
+        public string? AdditionalExtras { get; set; }
     }
 }

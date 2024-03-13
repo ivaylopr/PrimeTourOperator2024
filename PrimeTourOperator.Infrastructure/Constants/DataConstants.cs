@@ -17,6 +17,14 @@
         public const int HotelLocationMaxLength = 100;
         public const int HotelLocationMinLength = 10;
 
+        public const int RoomTitleMaxLength = 30;
+        public const int RoomTitleMinLength = 5;
+        public const int RoomDescriptionMaxLenght = 100;
+        public const int RoomAddExtrasMaxLength = 100;
+
+        public const int VacationCategoryTypeMaxLength = 50;
+        public const int VacationCategoryTypeMinLength = 3;
+        public const int VacationCategoryDescriptionMaxLength = 150;
   
     }
 }
