@@ -23,7 +23,9 @@ namespace PrimeTourOperator.Infrastructure.Data
                 .HasOne(vc => vc.Vacation)
                 .WithMany(vc => vc.VacationCustomers)
                 .OnDelete(DeleteBehavior.Restrict);
-            
+
+            builder.Entity<Vacation>().Property(v => v.Price).HasColumnType("decimal(18,2)");
+            builder.Entity<Room>().Property(r => r.Price).HasColumnType("decimal(18,2)");
             base.OnModelCreating(builder);
         }
         public DbSet<Agent> Agents { get; set; }

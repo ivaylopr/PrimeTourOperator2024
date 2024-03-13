@@ -16,6 +16,8 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [Comment("Vacation Title")]
         public string Title { get; set; } = string.Empty;
         [Required]
+        public decimal Price { get; set; }
+        [Required]
         public int CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public VacationCategory VacationCategory { get; set; } = null!;
