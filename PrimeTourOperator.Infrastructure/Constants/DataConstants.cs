@@ -25,6 +25,11 @@
         public const int VacationCategoryTypeMaxLength = 50;
         public const int VacationCategoryTypeMinLength = 3;
         public const int VacationCategoryDescriptionMaxLength = 150;
+
+        public const int SeasonEmploymentTitleMaxLength = 50;
+        public const int SeasonEmploumentTitleMinLength = 5;
+        public const int SeasonEmploumentDescriptionMaxLength = 150;
+        public const int SeasonEmploumentDescriptionMinLength = 20;
   
     }
 }

@@ -26,6 +26,7 @@ namespace PrimeTourOperator.Infrastructure.Data
 
             builder.Entity<Vacation>().Property(v => v.Price).HasColumnType("decimal(18,2)");
             builder.Entity<Room>().Property(r => r.Price).HasColumnType("decimal(18,2)");
+            builder.Entity<SeasonalEmployment>().Property(se => se.HourlyWage).HasColumnType("decimal(18,2)");
             base.OnModelCreating(builder);
         }
         public DbSet<Agent> Agents { get; set; }
@@ -33,6 +34,7 @@ namespace PrimeTourOperator.Infrastructure.Data
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<HotelVacation> HotelVacations { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<SeasonalEmployment> SeasonalEmployments { get; set; }
         public DbSet<Vacation> Vacations { get; set; }
         public DbSet<VacationCategory> VacationCategories { get; set; }
         public DbSet<VacationCustomer> VacationCustomers { get; set; }
