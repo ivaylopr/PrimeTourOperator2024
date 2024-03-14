@@ -22,5 +22,7 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [MaxLength(RoomAddExtrasMaxLength)]
         [Comment("Additional room exrtas")]
         public string? AdditionalExtras { get; set; }
+        [Required]
+        public int Count { get; set; }
     }
 }
