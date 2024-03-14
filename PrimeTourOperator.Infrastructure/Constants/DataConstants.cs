@@ -30,6 +30,8 @@
         public const int SeasonEmploumentTitleMinLength = 5;
         public const int SeasonEmploumentDescriptionMaxLength = 150;
         public const int SeasonEmploumentDescriptionMinLength = 20;
-  
+
+        public const string DateFormat = "dd/MM/yyyy HH:mm";
+
     }
 }

@@ -28,8 +28,8 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [Comment("End date for the job")]
         public DateTime EndDate { get; set; }
         [Required]
-        [Comment("Agent resposive for the offer")]
-        public string AgentId { get; set; } = string.Empty;
+        [Comment("Agent responsible for the offer")]
+        public int AgentId { get; set; } 
         [ForeignKey(nameof(AgentId))]
         public ApplicationUser Agent { get; set; } = null!;
         [Required]
@@ -37,7 +37,7 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         public int HotelId { get; set; }
         [ForeignKey(nameof(HotelId))]
         public Hotel Hotel { get; set; } = null!;
-        [Comment("Users who is applyed the offer")]
+        [Comment("Users who is applied the offer")]
         public IEnumerable<ApplicationUser> Applayers { get; set; } = new List<ApplicationUser>();
     }
 }

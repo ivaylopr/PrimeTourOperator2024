@@ -20,7 +20,7 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [Comment("Room price")]
         public  decimal Price { get; set; }
         [MaxLength(RoomAddExtrasMaxLength)]
-        [Comment("Additional room exrtas")]
+        [Comment("Additional room extras")]
         public string? AdditionalExtras { get; set; }
         [Required]
         public int Count { get; set; }
