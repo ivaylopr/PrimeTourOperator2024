@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrimeTourOperator.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using PrimeTourOperator.Infrastructure.Data;
 namespace PrimeTourOperator.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240315084002_SeedingTheDb")]
+    partial class SeedingTheDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,15 +145,15 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d8395082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "169c21f6-c075-448c-9e86-d77c5a903a97",
+                            ConcurrencyStamp = "e256afbc-4616-47ea-a5eb-5fcf5e634e38",
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "agent@mail.com",
                             NormalizedUserName = "agent@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAhJ1yZuzSm7dI65bdV2M3DkxN1MiOhpX1rMhIwimF0rSJBjqRcTokqY6ufnck/WIQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGldDuJYA8x9EJWsS0UuLpd+VNnUt30jxXx9b25q5S15JT9e2iIl513j5MD+jZ8FAg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "81204565-e0b4-4df2-9f86-5f230c891f98",
+                            SecurityStamp = "0bab3610-8bf1-4948-9fe8-13d744005396",
                             TwoFactorEnabled = false,
                             UserName = "agent@mail.com"
                         },
@@ -159,15 +161,15 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         {
                             Id = "6d5800ce-d726-4fc8-83d9-d6b3ac1f591e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "009c025b-05ed-41e7-bedd-15106b22946e",
+                            ConcurrencyStamp = "103367a3-ecd7-4a3a-bca1-78a9429c2cc9",
                             Email = "guest@mail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "guest@mail.com",
                             NormalizedUserName = "guest@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFH7I7x2Qh1xSK1YjOTKc+C951oaPPB6wFf2ppJmrH41rBrqNogNjxQMLJA1rbuTbA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPGlFCGgLxR8BJDyNkPio76Ps8bh5BJAYFG7fu61Q0IwLFm4v7dY7xxIloCOs1wkWQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3275e351-e2d6-49e7-8be5-cf676af81ab9",
+                            SecurityStamp = "52741ae8-5380-484c-84bf-edba8380ff61",
                             TwoFactorEnabled = false,
                             UserName = "guest@mail.com"
                         });
@@ -821,7 +823,7 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasComment("Vacation end date/leaving");
 
-                    b.Property<DateTime?>("EnrollmentDeadline")
+                    b.Property<DateTime>("EnrollmentDeadline")
                         .HasColumnType("datetime2")
                         .HasComment("Vacation enrollment deadline");
 

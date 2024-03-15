@@ -33,5 +33,10 @@
 
         public const string DateFormat = "dd/MM/yyyy HH:mm";
 
+        public const int RoomCategoryNameMaxLength = 30;
+        public const int RoomCategoryNameMinLength = 5;
+        public const int RoomDescriptionMaxLength = 250;
+        public const int RoomDescriptionminLength = 10;
+
     }
 }

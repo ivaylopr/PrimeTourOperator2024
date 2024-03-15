@@ -13,6 +13,10 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
         public Hotel BlackSeaStar { get; set; }
         public Hotel BanskoResort { get; set; }
         public Hotel PortoBelloHotel { get; set; }
+
+        public RoomCategory TwoBedRoom { get; set; }
+        public RoomCategory StudioRoom { get; set; }
+        public RoomCategory PresidentApartment { get; set; }
         public Room BlackSeaTwoBed { get; set; }
         public Room BlackSeaStudio { get; set; }
         public Room BlackSeaPresidentApart { get; set; }
@@ -42,6 +46,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
         {
             SeedUsers();
             SeedAgent();
+            SeedRoomCategory();
             SeedHotel();
             SeedVacationCategory();
             SeedRoom();
@@ -116,6 +121,28 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 CategoryStars = 5
             };
         }
+        private void SeedRoomCategory()
+        {
+            TwoBedRoom = new RoomCategory()
+            {
+                Id = 1,
+                Name = "Two bed room",
+                Description = "Room appropriate for two person, included: bathroom, balcony, refrigerator, air conditioning, room service."
+            };
+            StudioRoom = new RoomCategory()
+            {
+                Id = 2,
+                Name = "Studio",
+                Description = "Room appropriate for family, " +
+                "included: bathroom, balcony, refrigerator, air conditioning, room service, two single beds, kitchen."
+            }; 
+            PresidentApartment = new RoomCategory()
+            {
+                Id = 3,
+                Name = "President apartment",
+                Description = "Room appropriate for people who loves the lux. All extras and services of the hotel is available."
+            };
+        }
         private void SeedRoom()
         {
             BlackSeaTwoBed = new Room()
@@ -123,6 +150,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Id = 1,
                 Title = "Two person room",
                 Price = 70.00M,
+                RoomCategoryId = 1,
                 Count = 10
             };
             BlackSeaStudio = new Room()
@@ -130,13 +158,15 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Id = 2,
                 Title="Studio room",
                 Price = 90.00M,
+                RoomCategoryId=2,
                 Count = 5
             };
             BlackSeaPresidentApart = new Room()
             {
                 Id = 3,
-                Title = "Presiden apartmen",
+                Title = "President apartment",
                 Price = 300.00M,
+                RoomCategoryId=3,
                 Count = 1
             };
             BanskoResortTwoBed = new Room()
@@ -144,6 +174,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Id = 4,
                 Title = "Bansko Resort two bed room",
                 Price = 100.00m,
+                RoomCategoryId=1,
                 Count = 30
             };
             BanskoResortStudio = new Room()
@@ -151,6 +182,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Id = 5,
                 Title = "Bansko Resort studio",
                 Price = 150.00M,
+                RoomCategoryId=2,
                 Count = 10
             };
             BanskoResortPresidentApart = new Room()
@@ -158,6 +190,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Id = 6,
                 Title = "Bansko Resort president apartment",
                 Price = 800.00M,
+                RoomCategoryId=3,
                 Count = 2
             };
             PortoBelloTwoBed = new Room()
@@ -165,6 +198,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Id = 7,
                 Title = "Porto Bello two bed room",
                 Price = 120,
+                RoomCategoryId=1,
                 Count = 35
             };
             PortoBelloStudio = new Room()
@@ -172,6 +206,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Id = 8,
                 Title = "Porto bello studio",
                 Price = 180,
+                RoomCategoryId=2,
                 Count = 15
             };
             PortoBelloPresidentApart = new Room()
@@ -179,6 +214,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Id = 9,
                 Title = "Porto Bello president apartment",
                 Price = 500.00M,
+                RoomCategoryId=3,
                 Count = 1
             };
 
@@ -242,7 +278,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             Receptionist = new SeasonalEmployment()
             {
-                Id = 3,
+                Id = 4,
                 Title = "Receptionist",
                 Description = "Working to the reception, assistance to the customers problems and questions",
                 HourlyWage = 7.5M,
@@ -253,7 +289,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             Piccolo = new SeasonalEmployment()
             {
-                Id = 4,
+                Id = 5,
                 Title = "Piccolo",
                 Description = "Welcoming and full assistance with customers' luggage",
                 HourlyWage = 3.5M,
@@ -264,7 +300,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             ParkingAssistance = new SeasonalEmployment()
             {
-                Id = 5,
+                Id = 6,
                 Title = "Parking assistance",
                 Description = "Welcoming and parking the cusstomers cars on the hotel parking",
                 HourlyWage = 3.5M,
@@ -275,7 +311,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             PoolLifeGuard = new SeasonalEmployment()
             {
-                Id = 6,
+                Id = 7,
                 Title = "Lifeguard",
                 Description = "Lifeguard on the hotel pool",
                 HourlyWage = 8.00M,
@@ -286,7 +322,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             Waiter = new SeasonalEmployment()
             {
-                Id = 7,
+                Id = 8,
                 Title = "Waiter",
                 Description = "Waiter at the hotel restorant",
                 HourlyWage = 3.00M,
@@ -297,7 +333,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             Barman = new SeasonalEmployment()
             {
-                Id = 8,
+                Id = 9,
                 Title = "Barman",
                 Description = "Bartendering and enterteiment",
                 HourlyWage = 6.00M,
@@ -308,7 +344,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             DishWasher = new SeasonalEmployment()
             {
-                Id = 8,
+                Id = 10,
                 Title = "Dishwasher",
                 Description = "Washing the dishes in the kitchen",
                 HourlyWage = 4.50M,
@@ -334,6 +370,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Location = "Sozopol, Bulgaria",
                 AgentId = 1,
                 HotelId = 1,
+                RoomId = 1,
                 AllInclusive = true
             };
             BanskoResortAllInclusive = new Vacation()
@@ -350,6 +387,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Location = "Sozopol, Bulgaria",
                 AgentId = 1,
                 HotelId = 2,
+                RoomId=2,
                 AllInclusive = true
             };
             PortoBelloAllInclusive = new Vacation()
@@ -359,13 +397,14 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 Price = 2000.00M,
                 VacationCategoryId = 1,
                 EnrollmentDeadline = DateTime.ParseExact("06/04/2024 10:00", DateFormat, CultureInfo.InvariantCulture),
-                StartDate = DateTime.ParseExact("06/06/2024 10:00", DateFormat, CultureInfo.InvariantCulture),
-                EndDate = DateTime.ParseExact("15/06/2024 10:00", DateFormat, CultureInfo.InvariantCulture),
-                Description = "Ten days all inclusive holiday next to Black sea in one of the oldest towns in Europe." +
+                StartDate = DateTime.ParseExact("06/07/2024 10:00", DateFormat, CultureInfo.InvariantCulture),
+                EndDate = DateTime.ParseExact("15/07/2024 10:00", DateFormat, CultureInfo.InvariantCulture),
+                Description = "Ten days all inclusive holiday next to Agean sea in born place of Hipocrates." +
                 "Studio room plus",
                 Location = "Sozopol, Bulgaria",
                 AgentId = 1,
                 HotelId = 3,
+                RoomId=3,
                 AllInclusive = true
             };
         }

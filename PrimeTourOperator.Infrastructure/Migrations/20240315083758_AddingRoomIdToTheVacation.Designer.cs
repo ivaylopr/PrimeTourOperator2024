@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrimeTourOperator.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using PrimeTourOperator.Infrastructure.Data;
 namespace PrimeTourOperator.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240315083758_AddingRoomIdToTheVacation")]
+    partial class AddingRoomIdToTheVacation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -137,40 +139,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "dea12856-c198-4129-b3f3-b893d8395082",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "169c21f6-c075-448c-9e86-d77c5a903a97",
-                            Email = "agent@mail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "agent@mail.com",
-                            NormalizedUserName = "agent@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAhJ1yZuzSm7dI65bdV2M3DkxN1MiOhpX1rMhIwimF0rSJBjqRcTokqY6ufnck/WIQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "81204565-e0b4-4df2-9f86-5f230c891f98",
-                            TwoFactorEnabled = false,
-                            UserName = "agent@mail.com"
-                        },
-                        new
-                        {
-                            Id = "6d5800ce-d726-4fc8-83d9-d6b3ac1f591e",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "009c025b-05ed-41e7-bedd-15106b22946e",
-                            Email = "guest@mail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "guest@mail.com",
-                            NormalizedUserName = "guest@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFH7I7x2Qh1xSK1YjOTKc+C951oaPPB6wFf2ppJmrH41rBrqNogNjxQMLJA1rbuTbA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "3275e351-e2d6-49e7-8be5-cf676af81ab9",
-                            TwoFactorEnabled = false,
-                            UserName = "guest@mail.com"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -285,14 +253,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                     b.ToTable("Agents");
 
                     b.HasComment("Agent class");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            PhoneNumber = "+359888888888",
-                            UserId = "dea12856-c198-4129-b3f3-b893d8395082"
-                        });
                 });
 
             modelBuilder.Entity("PrimeTourOperator.Infrastructure.Data.Models.ApplicationUser", b =>
@@ -412,44 +372,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                     b.ToTable("Hotels");
 
                     b.HasComment("Hotel class");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AllInclusivePrice = 100m,
-                            Capacity = 200,
-                            CategoryStars = 3,
-                            ChildrenAnimators = true,
-                            Location = "Sozopol, Bulgaria",
-                            Name = "Black Sea Star",
-                            Pool = true,
-                            Spa = true
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AllInclusivePrice = 200m,
-                            Capacity = 300,
-                            CategoryStars = 4,
-                            ChildrenAnimators = true,
-                            Location = "Bansko, Bulgaria",
-                            Name = "Bansko Resort",
-                            Pool = true,
-                            Spa = true
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AllInclusivePrice = 150m,
-                            Capacity = 400,
-                            CategoryStars = 5,
-                            ChildrenAnimators = true,
-                            Location = "Kos iceland, Greece",
-                            Name = "Porto Bello",
-                            Pool = true,
-                            Spa = true
-                        });
                 });
 
             modelBuilder.Entity("PrimeTourOperator.Infrastructure.Data.Models.HotelVacation", b =>
@@ -509,80 +431,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                     b.ToTable("Rooms");
 
                     b.HasComment("Room class");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Count = 10,
-                            Price = 70.00m,
-                            RoomCategoryId = 1,
-                            Title = "Two person room"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Count = 5,
-                            Price = 90.00m,
-                            RoomCategoryId = 2,
-                            Title = "Studio room"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Count = 1,
-                            Price = 300.00m,
-                            RoomCategoryId = 3,
-                            Title = "President apartment"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Count = 30,
-                            Price = 100.00m,
-                            RoomCategoryId = 1,
-                            Title = "Bansko Resort two bed room"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Count = 10,
-                            Price = 150.00m,
-                            RoomCategoryId = 2,
-                            Title = "Bansko Resort studio"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Count = 2,
-                            Price = 800.00m,
-                            RoomCategoryId = 3,
-                            Title = "Bansko Resort president apartment"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Count = 35,
-                            Price = 120m,
-                            RoomCategoryId = 1,
-                            Title = "Porto Bello two bed room"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Count = 15,
-                            Price = 180m,
-                            RoomCategoryId = 2,
-                            Title = "Porto bello studio"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Count = 1,
-                            Price = 500.00m,
-                            RoomCategoryId = 3,
-                            Title = "Porto Bello president apartment"
-                        });
                 });
 
             modelBuilder.Entity("PrimeTourOperator.Infrastructure.Data.Models.RoomCategory", b =>
@@ -608,26 +456,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                     b.ToTable("RoomCategory");
 
                     b.HasComment("Room category type");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Room appropriate for two person, included: bathroom, balcony, refrigerator, air conditioning, room service.",
-                            Name = "Two bed room"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Room appropriate for family, included: bathroom, balcony, refrigerator, air conditioning, room service, two single beds, kitchen.",
-                            Name = "Studio"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Room appropriate for people who loves the lux. All extras and services of the hotel is available.",
-                            Name = "President apartment"
-                        });
                 });
 
             modelBuilder.Entity("PrimeTourOperator.Infrastructure.Data.Models.SeasonalEmployment", b =>
@@ -680,118 +508,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                     b.ToTable("SeasonalEmployments");
 
                     b.HasComment("Season job class");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AgentId = 1,
-                            Description = "Person who help to the shefs and performs the given tasks",
-                            EndDate = new DateTime(2024, 9, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 1,
-                            HourlyWage = 5.5m,
-                            StartDate = new DateTime(2024, 3, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Kitchen helper"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AgentId = 1,
-                            Description = "Cleaning rooms and common areas and preparing the hotel for the customers",
-                            EndDate = new DateTime(2024, 9, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 1,
-                            HourlyWage = 5.5m,
-                            StartDate = new DateTime(2024, 3, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "House keeper"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AgentId = 1,
-                            Description = "Delivering and service to the hotel customers' room",
-                            EndDate = new DateTime(2024, 10, 16, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 3,
-                            HourlyWage = 6.5m,
-                            StartDate = new DateTime(2024, 3, 3, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Room service"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AgentId = 1,
-                            Description = "Working to the reception, assistance to the customers problems and questions",
-                            EndDate = new DateTime(2025, 4, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 2,
-                            HourlyWage = 7.5m,
-                            StartDate = new DateTime(2024, 10, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Receptionist"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AgentId = 1,
-                            Description = "Welcoming and full assistance with customers' luggage",
-                            EndDate = new DateTime(2024, 10, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 3,
-                            HourlyWage = 3.5m,
-                            StartDate = new DateTime(2024, 3, 3, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Piccolo"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AgentId = 1,
-                            Description = "Welcoming and parking the cusstomers cars on the hotel parking",
-                            EndDate = new DateTime(2024, 4, 9, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 2,
-                            HourlyWage = 3.5m,
-                            StartDate = new DateTime(2024, 10, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Parking assistance"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AgentId = 1,
-                            Description = "Lifeguard on the hotel pool",
-                            EndDate = new DateTime(2024, 10, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 3,
-                            HourlyWage = 8.00m,
-                            StartDate = new DateTime(2024, 3, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Lifeguard"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            AgentId = 1,
-                            Description = "Waiter at the hotel restorant",
-                            EndDate = new DateTime(2024, 10, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 1,
-                            HourlyWage = 3.00m,
-                            StartDate = new DateTime(2024, 4, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Waiter"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            AgentId = 1,
-                            Description = "Bartendering and enterteiment",
-                            EndDate = new DateTime(2024, 10, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 3,
-                            HourlyWage = 6.00m,
-                            StartDate = new DateTime(2024, 2, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Barman"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AgentId = 1,
-                            Description = "Washing the dishes in the kitchen",
-                            EndDate = new DateTime(2024, 10, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 1,
-                            HourlyWage = 4.50m,
-                            StartDate = new DateTime(2024, 4, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Dishwasher"
-                        });
                 });
 
             modelBuilder.Entity("PrimeTourOperator.Infrastructure.Data.Models.Vacation", b =>
@@ -821,7 +537,7 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasComment("Vacation end date/leaving");
 
-                    b.Property<DateTime?>("EnrollmentDeadline")
+                    b.Property<DateTime>("EnrollmentDeadline")
                         .HasColumnType("datetime2")
                         .HasComment("Vacation enrollment deadline");
 
@@ -868,56 +584,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                     b.ToTable("Vacations");
 
                     b.HasComment("Vacation class");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AgentId = 1,
-                            AllInclusive = true,
-                            Description = "Ten days all inclusive holiday next to Black sea in one of the oldest towns in Europe.Two bed room plus",
-                            EndDate = new DateTime(2024, 6, 15, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            EnrollmentDeadline = new DateTime(2024, 4, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 1,
-                            Location = "Sozopol, Bulgaria",
-                            Price = 800.00m,
-                            RoomId = 1,
-                            StartDate = new DateTime(2024, 6, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Black Sea Star Sozopol-AllInclusive offer",
-                            VacationCategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AgentId = 1,
-                            AllInclusive = true,
-                            Description = "Ten days all inclusive holiday next to Black sea in one of the oldest towns in Europe.Studio room plus",
-                            EndDate = new DateTime(2024, 6, 15, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            EnrollmentDeadline = new DateTime(2024, 4, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 2,
-                            Location = "Sozopol, Bulgaria",
-                            Price = 2000.00m,
-                            RoomId = 2,
-                            StartDate = new DateTime(2024, 6, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Bansko Resort-AllInclusive offer",
-                            VacationCategoryId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AgentId = 1,
-                            AllInclusive = true,
-                            Description = "Ten days all inclusive holiday next to Agean sea in born place of Hipocrates.Studio room plus",
-                            EndDate = new DateTime(2024, 7, 15, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            EnrollmentDeadline = new DateTime(2024, 4, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            HotelId = 3,
-                            Location = "Sozopol, Bulgaria",
-                            Price = 2000.00m,
-                            RoomId = 3,
-                            StartDate = new DateTime(2024, 7, 6, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Bansko Resort-AllInclusive offer",
-                            VacationCategoryId = 1
-                        });
                 });
 
             modelBuilder.Entity("PrimeTourOperator.Infrastructure.Data.Models.VacationCategory", b =>
@@ -945,26 +611,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                     b.ToTable("VacationCategories");
 
                     b.HasComment("Category class for vacations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Holiday next to the sea.",
-                            VacationType = "Sea holiday"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Holiday in the mountain",
-                            VacationType = "Mountain holiday"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Vacation in SPA resort",
-                            VacationType = "Spa holiday"
-                        });
                 });
 
             modelBuilder.Entity("PrimeTourOperator.Infrastructure.Data.Models.VacationCustomer", b =>
