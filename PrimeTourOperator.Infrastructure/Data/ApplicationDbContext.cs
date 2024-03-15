@@ -27,6 +27,7 @@ namespace PrimeTourOperator.Infrastructure.Data
             builder.Entity<Vacation>().Property(v => v.Price).HasColumnType("decimal(18,2)");
             builder.Entity<Room>().Property(r => r.Price).HasColumnType("decimal(18,2)");
             builder.Entity<SeasonalEmployment>().Property(se => se.HourlyWage).HasColumnType("decimal(18,2)");
+            builder.Entity<Hotel>().Property(h => h.AllInclusivePrice).HasColumnType("decimal(18,2)");
             base.OnModelCreating(builder);
         }
         public DbSet<Agent> Agents { get; set; }
