@@ -31,7 +31,7 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [Comment("Agent responsible for the offer")]
         public int AgentId { get; set; } 
         [ForeignKey(nameof(AgentId))]
-        public ApplicationUser Agent { get; set; } = null!;
+        public Agent Agent { get; set; } = null!;
         [Required]
         [Comment("Hotel who is offering the season job")]
         public int HotelId { get; set; }

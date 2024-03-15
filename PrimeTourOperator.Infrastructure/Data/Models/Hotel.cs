@@ -20,6 +20,8 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [Required]
         [Comment("Pool available")]
         public bool Pool { get; set; }
+        [Comment("All inclusive additional price to the room offer")]
+        public decimal? AllInclusivePrice { get; set; }
         [Required]
         [Comment("Children animation available")]
         public bool ChildrenAnimators { get; set; }

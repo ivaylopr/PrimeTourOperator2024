@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrimeTourOperator.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using PrimeTourOperator.Infrastructure.Data;
 namespace PrimeTourOperator.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240314195449_FixingSeasonEmoploymentsEntityProperties")]
+    partial class FixingSeasonEmoploymentsEntityProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -331,10 +333,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<decimal?>("AllInclusivePrice")
-                        .HasColumnType("decimal(18,2)")
-                        .HasComment("All inclusive additional price to the room offer");
-
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
@@ -495,9 +493,8 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasComment("Agent who is responsive for the vacation");
 
-                    b.Property<bool?>("AllInclusive")
-                        .HasColumnType("bit")
-                        .HasComment("Is all inclusive option added to the vacation");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -512,10 +509,6 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                     b.Property<DateTime>("EnrollmentDeadline")
                         .HasColumnType("datetime2")
                         .HasComment("Vacation enrollment deadline");
-
-                    b.Property<int>("HotelId")
-                        .HasColumnType("int")
-                        .HasComment("Hotel identifier of the holiday");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -536,16 +529,14 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasComment("Vacation Title");
 
-                    b.Property<int>("VacationCategoryId")
+                    b.Property<int>("VacationCapacity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AgentId");
 
-                    b.HasIndex("HotelId");
-
-                    b.HasIndex("VacationCategoryId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Vacations");
 
@@ -716,21 +707,13 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PrimeTourOperator.Infrastructure.Data.Models.Hotel", "Hotel")
-                        .WithMany()
-                        .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("PrimeTourOperator.Infrastructure.Data.Models.VacationCategory", "VacationCategory")
                         .WithMany("Vacations")
-                        .HasForeignKey("VacationCategoryId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Agent");
-
-                    b.Navigation("Hotel");
 
                     b.Navigation("VacationCategory");
                 });

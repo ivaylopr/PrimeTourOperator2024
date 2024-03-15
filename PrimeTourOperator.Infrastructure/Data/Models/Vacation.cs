@@ -15,11 +15,13 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [MaxLength(VacationTitleMaxLength)]
         [Comment("Vacation Title")]
         public string Title { get; set; } = string.Empty;
+        [Comment("Is all inclusive option added to the vacation")]
+        public bool? AllInclusive { get; set; }
         [Required]
         public decimal Price { get; set; }
         [Required]
-        public int CategoryId { get; set; }
-        [ForeignKey(nameof(CategoryId))]
+        public int VacationCategoryId { get; set; }
+        [ForeignKey(nameof(VacationCategoryId))]
         public VacationCategory VacationCategory { get; set; } = null!;
         [Required]
         [Comment("Vacation enrollment deadline")]
@@ -44,7 +46,12 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         
         [ForeignKey(nameof(AgentId))]
         public Agent Agent { get; set; } = null!;
-        public int VacationCapacity { get; set; }
+        [Required]
+        [Comment("Hotel identifier of the holiday")]
+        public int HotelId { get; set; }
+        [ForeignKey(nameof(HotelId))]
+        public Hotel Hotel { get; set; } = null!;
+
         public IList<VacationCustomer> VacationCustomers { get; set; } = new List<VacationCustomer>();
 
     }
