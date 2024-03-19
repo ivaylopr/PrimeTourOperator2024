@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PrimeTourOperator.Infrastructure.Data.Models
@@ -12,6 +13,6 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [Required]
         public string UserId { get; set; } = string.Empty;
         [ForeignKey(nameof(UserId))]
-        public ApplicationUser User { get; set; } = null!;
+        public IdentityUser User { get; set; } = null!;
     }
 }

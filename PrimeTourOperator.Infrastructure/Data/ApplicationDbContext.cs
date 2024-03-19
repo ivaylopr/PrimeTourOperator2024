@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PrimeTourOperator.Infrastructure.Data.DataSeed;
 using PrimeTourOperator.Infrastructure.Data.Models;
 
 namespace PrimeTourOperator.Infrastructure.Data
@@ -28,10 +29,18 @@ namespace PrimeTourOperator.Infrastructure.Data
             builder.Entity<Room>().Property(r => r.Price).HasColumnType("decimal(18,2)");
             builder.Entity<SeasonalEmployment>().Property(se => se.HourlyWage).HasColumnType("decimal(18,2)");
             builder.Entity<Hotel>().Property(h => h.AllInclusivePrice).HasColumnType("decimal(18,2)");
+
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new AgentConfiguration());
+            builder.ApplyConfiguration(new HotelConfiguration());
+            builder.ApplyConfiguration(new RoomConfiguration());
+            builder.ApplyConfiguration(new SeasonalEmploymentConfiguration());
+            builder.ApplyConfiguration(new VacationCategoryConfiguration());
+            builder.ApplyConfiguration(new VacationConfiguration());
+
             base.OnModelCreating(builder);
         }
         public DbSet<Agent> Agents { get; set; }
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<HotelVacation> HotelVacations { get; set; }
         public DbSet<Room> Rooms { get; set; }

@@ -7,8 +7,8 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
 {
     internal class SeedData
     {
-        public IdentityUser AgentUser { get; set; }
-        public IdentityUser GuestUser { get; set; }
+        public Microsoft.AspNetCore.Identity.IdentityUser AgentUser { get; set; }
+        public Microsoft.AspNetCore.Identity.IdentityUser GuestUser { get; set; }
         public Agent Agent { get; set; }
         public Hotel BlackSeaStar { get; set; }
         public Hotel BanskoResort { get; set; }
@@ -51,8 +51,8 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
 
         private void SeedUsers()
         {
-            var hasher = new PasswordHasher<IdentityUser>();
-            AgentUser = new IdentityUser()
+            var hasher = new PasswordHasher<Microsoft.AspNetCore.Identity.IdentityUser>();
+            AgentUser = new Microsoft.AspNetCore.Identity.IdentityUser()
             {
                 Id = "dea12856-c198-4129-b3f3-b893d8395082",
                 UserName = "agent@mail.com",
@@ -61,7 +61,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
                 NormalizedEmail = "agent@mail.com"
             };
             AgentUser.PasswordHash = hasher.HashPassword(AgentUser, "agent123");
-            GuestUser = new IdentityUser()
+            GuestUser = new Microsoft.AspNetCore.Identity.IdentityUser()
             {
                 Id = "6d5800ce-d726-4fc8-83d9-d6b3ac1f591e",
                 UserName = "guest@mail.com",
@@ -71,6 +71,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             GuestUser.PasswordHash = hasher.HashPassword(AgentUser, "guest123");
         }
+        
         private void SeedAgent()
         {
             Agent = new Agent()
@@ -121,63 +122,63 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             BlackSeaTwoBed = new Room()
             {
                 Id = 1,
-                Title = "Two person room",
+                Title = "BSea Two person room",
                 Price = 70.00M,
                 Count = 10
             };
             BlackSeaStudio = new Room()
             {
                 Id = 2,
-                Title="Studio room",
+                Title="BSea Studio room",
                 Price = 90.00M,
                 Count = 5
             };
             BlackSeaPresidentApart = new Room()
             {
                 Id = 3,
-                Title = "Presiden apartmen",
+                Title = "BanskoPresiden apartmen",
                 Price = 300.00M,
                 Count = 1
             };
             BanskoResortTwoBed = new Room()
             {
                 Id = 4,
-                Title = "Bansko Resort two bed room",
+                Title = "Bansko Two bed room",
                 Price = 100.00m,
                 Count = 30
             };
             BanskoResortStudio = new Room()
             {
                 Id = 5,
-                Title = "Bansko Resort studio",
+                Title = "Bansko Studio",
                 Price = 150.00M,
                 Count = 10
             };
             BanskoResortPresidentApart = new Room()
             {
                 Id = 6,
-                Title = "Bansko Resort president apartment",
+                Title = "Bansko President apartment",
                 Price = 800.00M,
                 Count = 2
             };
             PortoBelloTwoBed = new Room()
             {
                 Id = 7,
-                Title = "Porto Bello two bed room",
+                Title = "PBello Two bed room",
                 Price = 120,
                 Count = 35
             };
             PortoBelloStudio = new Room()
             {
                 Id = 8,
-                Title = "Porto bello studio",
+                Title = "PBello Studio",
                 Price = 180,
                 Count = 15
             };
             PortoBelloPresidentApart = new Room()
             {
                 Id = 9,
-                Title = "Porto Bello president apartment",
+                Title = "PBello President apartment",
                 Price = 500.00M,
                 Count = 1
             };
@@ -242,7 +243,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             Receptionist = new SeasonalEmployment()
             {
-                Id = 3,
+                Id = 4,
                 Title = "Receptionist",
                 Description = "Working to the reception, assistance to the customers problems and questions",
                 HourlyWage = 7.5M,
@@ -253,7 +254,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             Piccolo = new SeasonalEmployment()
             {
-                Id = 4,
+                Id = 5,
                 Title = "Piccolo",
                 Description = "Welcoming and full assistance with customers' luggage",
                 HourlyWage = 3.5M,
@@ -264,7 +265,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             ParkingAssistance = new SeasonalEmployment()
             {
-                Id = 5,
+                Id = 6,
                 Title = "Parking assistance",
                 Description = "Welcoming and parking the cusstomers cars on the hotel parking",
                 HourlyWage = 3.5M,
@@ -275,7 +276,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             PoolLifeGuard = new SeasonalEmployment()
             {
-                Id = 6,
+                Id = 7,
                 Title = "Lifeguard",
                 Description = "Lifeguard on the hotel pool",
                 HourlyWage = 8.00M,
@@ -286,7 +287,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             Waiter = new SeasonalEmployment()
             {
-                Id = 7,
+                Id = 8,
                 Title = "Waiter",
                 Description = "Waiter at the hotel restorant",
                 HourlyWage = 3.00M,
@@ -297,7 +298,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             Barman = new SeasonalEmployment()
             {
-                Id = 8,
+                Id = 9,
                 Title = "Barman",
                 Description = "Bartendering and enterteiment",
                 HourlyWage = 6.00M,
@@ -308,7 +309,7 @@ namespace PrimeTourOperator.Infrastructure.Data.DataSeed
             };
             DishWasher = new SeasonalEmployment()
             {
-                Id = 8,
+                Id = 10,
                 Title = "Dishwasher",
                 Description = "Washing the dishes in the kitchen",
                 HourlyWage = 4.50M,

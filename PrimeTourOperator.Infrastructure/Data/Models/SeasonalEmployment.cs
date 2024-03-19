@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static PrimeTourOperator.Infrastructure.Constants.DataConstants;
@@ -38,6 +39,6 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         [ForeignKey(nameof(HotelId))]
         public Hotel Hotel { get; set; } = null!;
         [Comment("Users who is applied the offer")]
-        public IEnumerable<ApplicationUser> Applayers { get; set; } = new List<ApplicationUser>();
+        public IEnumerable<IdentityUser> Applayers { get; set; } = new List<IdentityUser>();
     }
 }

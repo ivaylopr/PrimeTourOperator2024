@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrimeTourOperator.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using PrimeTourOperator.Infrastructure.Data;
 namespace PrimeTourOperator.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240319074303_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,15 +150,15 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         {
                             Id = "dea12856-c198-4129-b3f3-b893d8395082",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f7f2f778-425d-42cd-9b8d-152dcf934731",
+                            ConcurrencyStamp = "8a5fac05-0085-4529-a16e-04fa0e6092b0",
                             Email = "agent@mail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "agent@mail.com",
                             NormalizedUserName = "agent@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ+fE3shc7k7qtQO5OtTqdeNc6odAH1AjTkYJ9elFd/zxqSlxJhlx88BRgx+/mKQag==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBrGLiosOXnE0Q4ujDm7u1muTSjNj4NPM0NSkpd2CCL0qVZAvurtMYwXDbM4b9Sd3w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ed9a16d9-d196-4380-8f43-1b4b4d57a013",
+                            SecurityStamp = "83e99140-a5d9-43d7-80c7-76374b408261",
                             TwoFactorEnabled = false,
                             UserName = "agent@mail.com"
                         },
@@ -164,15 +166,15 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                         {
                             Id = "6d5800ce-d726-4fc8-83d9-d6b3ac1f591e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "577e6ee4-30af-400b-938f-3b2aa96cb877",
+                            ConcurrencyStamp = "91bfb231-0ed3-44b4-b6d7-3333fe01ebde",
                             Email = "guest@mail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "guest@mail.com",
                             NormalizedUserName = "guest@mail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFOXDNmyLRfcfkuwTcB4QdzDESU7V7y3kj3aXNqW9qnGWemkCP4TopKaziRiVIkeoQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKRwDnImIu9MFEVmF3kyBFL+EvVNoK9AD3pFBTLQo0Pno9VCAMNbaTf5QBVIS+lpNg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d67d6b87-ed45-4d90-b85c-f194979666da",
+                            SecurityStamp = "5398413f-cef5-4762-a145-ffc6350a3f48",
                             TwoFactorEnabled = false,
                             UserName = "guest@mail.com"
                         });
@@ -451,63 +453,63 @@ namespace PrimeTourOperator.Infrastructure.Migrations
                             Id = 1,
                             Count = 10,
                             Price = 70.00m,
-                            Title = "BSea Two person room"
+                            Title = "Two person room"
                         },
                         new
                         {
                             Id = 2,
                             Count = 5,
                             Price = 90.00m,
-                            Title = "BSea Studio room"
+                            Title = "Studio room"
                         },
                         new
                         {
                             Id = 3,
                             Count = 1,
                             Price = 300.00m,
-                            Title = "BanskoPresiden apartmen"
+                            Title = "Presiden apartmen"
                         },
                         new
                         {
                             Id = 4,
                             Count = 30,
                             Price = 100.00m,
-                            Title = "Bansko Two bed room"
+                            Title = "Two bed room"
                         },
                         new
                         {
                             Id = 5,
                             Count = 10,
                             Price = 150.00m,
-                            Title = "Bansko Studio"
+                            Title = "Studio"
                         },
                         new
                         {
                             Id = 6,
                             Count = 2,
                             Price = 800.00m,
-                            Title = "Bansko President apartment"
+                            Title = "President apartment"
                         },
                         new
                         {
                             Id = 7,
                             Count = 35,
                             Price = 120m,
-                            Title = "PBello Two bed room"
+                            Title = "Two bed room"
                         },
                         new
                         {
                             Id = 8,
                             Count = 15,
                             Price = 180m,
-                            Title = "PBello Studio"
+                            Title = "Studio"
                         },
                         new
                         {
                             Id = 9,
                             Count = 1,
                             Price = 500.00m,
-                            Title = "PBello President apartment"
+                            Title = "President apartment"
                         });
                 });
 
