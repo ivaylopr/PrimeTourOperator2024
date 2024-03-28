@@ -33,6 +33,7 @@ namespace PrimeTourOperator.Infrastructure.Data.Models
         public int Capacity { get; set; }
         [Required]
         public int CategoryStars { get; set; }
+        public IList<Comment> Comments { get; set; } = new List<Comment>();
         public IEnumerable<Room> Rooms { get; set; } = new List<Room>();
         public IList<HotelVacation> HotelVacations { get; set; } = new List<HotelVacation>();
     }

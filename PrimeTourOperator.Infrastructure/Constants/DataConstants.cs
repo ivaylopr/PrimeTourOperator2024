@@ -31,7 +31,11 @@
         public const int SeasonEmploumentDescriptionMaxLength = 150;
         public const int SeasonEmploumentDescriptionMinLength = 20;
 
+        public const int CommentReviewMaxLength = 500;
+        public const int CommentReviewMinLength = 10;
+
         public const string DateFormat = "dd/MM/yyyy HH:mm";
+
 
     }
 }
